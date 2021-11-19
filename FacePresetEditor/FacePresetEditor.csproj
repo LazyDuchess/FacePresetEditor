@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Face Preset Editor Icon3.ico</ApplicationIcon>
@@ -73,6 +75,8 @@
     <Compile Include="S3\Utils\BinaryReaderExtensions.cs" />
     <Compile Include="S3\Utils\BinaryWriterExtensions.cs" />
     <Compile Include="S3\Utils\Hex.cs" />
+    <Compile Include="System\HalfHelper.cs" />
+    <Compile Include="System\Half.cs" />
     <Compile Include="Test\Test.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
