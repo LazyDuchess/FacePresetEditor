@@ -38,12 +38,7 @@ namespace S3.Formats
                 writer.Write(facePreset.faceBlends.Count);
                 foreach(var element in facePreset.faceBlends)
                 {
-                /*
-                    var floatBytes = BitConverter.GetBytes(element.amount);
-                    floatBytes[0] = 0x0;
-                    floatBytes[1] = 0x0;
-                    writer.Write(floatBytes);*/
-                writer.Write(element.amount);
+                    writer.Write(element.amount);
                     element.faceBlendTGI.Serialize(writer);
                 }
         }

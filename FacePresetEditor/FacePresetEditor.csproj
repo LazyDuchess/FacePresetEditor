@@ -75,8 +75,6 @@
     <Compile Include="S3\Utils\BinaryReaderExtensions.cs" />
     <Compile Include="S3\Utils\BinaryWriterExtensions.cs" />
     <Compile Include="S3\Utils\Hex.cs" />
-    <Compile Include="System\HalfHelper.cs" />
-    <Compile Include="System\Half.cs" />
     <Compile Include="Test\Test.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
