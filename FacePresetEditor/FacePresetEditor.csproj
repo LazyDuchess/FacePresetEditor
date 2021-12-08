@@ -39,6 +39,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Custom">
+      <HintPath>E:\Downloads\s3pi_17-0520-1823 (1)\System.Custom.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,6 +56,7 @@
     <Compile Include="EditorEnvironment.cs" />
     <Compile Include="FaceBlendValueMetadata.cs" />
     <Compile Include="FacePresetWrapper.cs" />
+    <Compile Include="Formats\Converter.cs" />
     <Compile Include="Formats\S3FaceTemplateFile.cs" />
     <Compile Include="NRaasForm.cs">
       <SubType>Form</SubType>
@@ -72,6 +76,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="S3\Common\TGI.cs" />
+    <Compile Include="Formats\XMLFile.cs" />
     <Compile Include="S3\Utils\BinaryReaderExtensions.cs" />
     <Compile Include="S3\Utils\BinaryWriterExtensions.cs" />
     <Compile Include="S3\Utils\Hex.cs" />

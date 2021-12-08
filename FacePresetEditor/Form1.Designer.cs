@@ -60,12 +60,14 @@
             this.trackBarSliderAmount = new System.Windows.Forms.TrackBar();
             this.numericUpDownSliderAmount = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.numericUpDownSliderMultiply = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonAddSlider = new System.Windows.Forms.Button();
             this.buttonRemoveSlider = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.label9 = new System.Windows.Forms.Label();
-            this.numericUpDownSliderMultiply = new System.Windows.Forms.NumericUpDown();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.batchConvertXMLsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanelSlider.SuspendLayout();
@@ -78,7 +80,8 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.toolsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(700, 28);
@@ -103,47 +106,47 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.saveAsToolStripMenuItem.Text = "Save As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(140, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
             // 
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.importToolStripMenuItem.Text = "Import";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(143, 26);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.exportToolStripMenuItem.Text = "Export";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
@@ -390,6 +393,34 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(365, 191);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 17);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Multiply:";
+            // 
+            // numericUpDownSliderMultiply
+            // 
+            this.flowLayoutPanelSlider.SetFlowBreak(this.numericUpDownSliderMultiply, true);
+            this.numericUpDownSliderMultiply.Location = new System.Drawing.Point(430, 194);
+            this.numericUpDownSliderMultiply.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownSliderMultiply.Name = "numericUpDownSliderMultiply";
+            this.numericUpDownSliderMultiply.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownSliderMultiply.TabIndex = 16;
+            this.numericUpDownSliderMultiply.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownSliderMultiply.ValueChanged += new System.EventHandler(this.numericUpDownSliderMultiply_ValueChanged);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -421,33 +452,20 @@
             this.buttonRemoveSlider.UseVisualStyleBackColor = true;
             this.buttonRemoveSlider.Click += new System.EventHandler(this.buttonRemoveSlider_Click);
             // 
-            // label9
+            // toolsToolStripMenuItem
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(365, 191);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 17);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Multiply:";
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.batchConvertXMLsToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
+            this.toolsToolStripMenuItem.Text = "Tools";
             // 
-            // numericUpDownSliderMultiply
+            // batchConvertXMLsToolStripMenuItem
             // 
-            this.flowLayoutPanelSlider.SetFlowBreak(this.numericUpDownSliderMultiply, true);
-            this.numericUpDownSliderMultiply.Location = new System.Drawing.Point(430, 194);
-            this.numericUpDownSliderMultiply.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownSliderMultiply.Name = "numericUpDownSliderMultiply";
-            this.numericUpDownSliderMultiply.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDownSliderMultiply.TabIndex = 16;
-            this.numericUpDownSliderMultiply.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownSliderMultiply.ValueChanged += new System.EventHandler(this.numericUpDownSliderMultiply_ValueChanged);
+            this.batchConvertXMLsToolStripMenuItem.Name = "batchConvertXMLsToolStripMenuItem";
+            this.batchConvertXMLsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.batchConvertXMLsToolStripMenuItem.Text = "Batch Convert XMLs";
+            this.batchConvertXMLsToolStripMenuItem.Click += new System.EventHandler(this.batchConvertXMLsToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -518,6 +536,8 @@
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown numericUpDownSliderMultiply;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem batchConvertXMLsToolStripMenuItem;
     }
 }
 

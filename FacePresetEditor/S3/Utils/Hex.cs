@@ -8,14 +8,14 @@ namespace S3.Utils
 {
     public static class Hex
     {
-        public static int intFromString(string str)
+        public static uint uintFromString(string str)
         {
-            return Convert.ToInt32(str, 16);
+            return Convert.ToUInt32(str, 16);
         }
 
-        public static long longFromString(string str)
+        public static ulong ulongFromString(string str)
         {
-            return Convert.ToInt64(str, 16);
+            return Convert.ToUInt64(str, 16);
         }
     }
 }

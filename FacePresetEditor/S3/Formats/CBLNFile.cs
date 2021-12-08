@@ -34,10 +34,10 @@ namespace S3.Formats
 
         public static void Serialize(BinaryWriter writer, FacePreset facePreset)
         {
-                writer.Write(facePreset.version);
+                writer.Write(2);
                 BinaryWriterExtensions.WriteString(writer, facePreset.name);
                 writer.Write((int)facePreset.presetType);
-                writer.Write(facePreset.formatFlags);
+                writer.Write(73744);
                 writer.Write(facePreset.faceBlends.Count);
                 foreach(var element in facePreset.faceBlends)
                 {

@@ -10,9 +10,9 @@ namespace S3.Common
 {
     public class TGI
     {
-        public long instance;
-        public int type;
-        public int group;
+        public ulong instance;
+        public uint type;
+        public uint group;
         public override string ToString()
         {
             var insHexValue = "0x"+instance.ToString("X16");
@@ -27,9 +27,9 @@ namespace S3.Common
         }
         public TGI(string type, string group, string instance)
         {
-            this.type = Hex.intFromString(type);
-            this.group = Hex.intFromString(group);
-            this.instance = Hex.longFromString(instance);
+            this.type = Hex.uintFromString(type);
+            this.group = Hex.uintFromString(group);
+            this.instance = Hex.ulongFromString(instance);
         }
 
         public TGI Deserialize(BinaryReader reader)
@@ -41,9 +41,9 @@ namespace S3.Common
 
         public TGI Deserialize(byte[] data)
         {
-            this.instance = BitConverter.ToInt64(data, 0);
-            this.group = BitConverter.ToInt32(data, 8);
-            this.type = BitConverter.ToInt32(data, 12);
+            this.instance = BitConverter.ToUInt64(data, 0);
+            this.group = BitConverter.ToUInt32(data, 8);
+            this.type = BitConverter.ToUInt32(data, 12);
             return this;
         }
 

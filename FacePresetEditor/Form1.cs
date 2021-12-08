@@ -197,7 +197,7 @@ namespace FacePresetEditor
         {
             try
             {
-                GetFaceBlend(GetSelectedSliderIndex()).faceBlendTGI.instance = Hex.longFromString(textBoxSliderInstance.Text);
+                GetFaceBlend(GetSelectedSliderIndex()).faceBlendTGI.instance = Hex.ulongFromString(textBoxSliderInstance.Text);
                 updateSliderText();
                 Program.editorEnvironment.MarkDirty(true);
             }
@@ -212,7 +212,7 @@ namespace FacePresetEditor
         {
             try
             {
-                GetFaceBlend(GetSelectedSliderIndex()).faceBlendTGI.group = Hex.intFromString(textBoxSliderGroup.Text);
+                GetFaceBlend(GetSelectedSliderIndex()).faceBlendTGI.group = Hex.uintFromString(textBoxSliderGroup.Text);
                 updateSliderText();
                 Program.editorEnvironment.MarkDirty(true);
             }
@@ -226,7 +226,7 @@ namespace FacePresetEditor
         {
             try
             {
-                GetFaceBlend(GetSelectedSliderIndex()).faceBlendTGI.type = Hex.intFromString(textBoxSliderType.Text);
+                GetFaceBlend(GetSelectedSliderIndex()).faceBlendTGI.type = Hex.uintFromString(textBoxSliderType.Text);
                 updateSliderText();
                 Program.editorEnvironment.MarkDirty(true);
             }
@@ -296,10 +296,10 @@ namespace FacePresetEditor
                 Program.editorEnvironment.openFacePreset = new FacePresetWrapper();
                 Program.editorEnvironment.filePath = "";
                 Program.editorEnvironment.fileName = Path.GetFileNameWithoutExtension(importDialog.FileName);
-                using (BinaryReader reader = new BinaryReader(new FileStream(importDialog.FileName, FileMode.Open)))
-                {
-                    CBLNFile.Deserialize(reader, Program.editorEnvironment.openFacePreset.facePreset);
-                }
+                    using (BinaryReader reader = new BinaryReader(new FileStream(importDialog.FileName, FileMode.Open)))
+                    {
+                        CBLNFile.Deserialize(reader, Program.editorEnvironment.openFacePreset.facePreset);
+                    }
                 Program.editorEnvironment.openFacePreset.faceBlendMetadata.Clear();
                 for(var i=0;i<Program.editorEnvironment.openFacePreset.facePreset.faceBlends.Count;i++)
                 {
@@ -330,13 +330,20 @@ namespace FacePresetEditor
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var importDialog = new OpenFileDialog();
-            importDialog.Filter = "Preset Editor Files(*.facepreset)|*.facepreset|All files(*.*)|*.*";
+            importDialog.Filter = "Preset Editor Files(*.facepreset)|*.facepreset|XML Files(*.xml)|*.xml|All files(*.*)|*.*";
             if (importDialog.ShowDialog() == DialogResult.OK)
             {
+                
                 Program.editorEnvironment.openFacePreset = new FacePresetWrapper();
-                using (BinaryReader reader = new BinaryReader(new FileStream(importDialog.FileName, FileMode.Open)))
+                var format = Path.GetExtension(importDialog.FileName).ToLowerInvariant();
+                if (format == ".xml")
+                    XMLFile.Deserialize(importDialog.FileName, Program.editorEnvironment.openFacePreset);
+                else
                 {
-                    S3FaceTemplateFile.Deserialize(reader, Program.editorEnvironment.openFacePreset);
+                    using (BinaryReader reader = new BinaryReader(new FileStream(importDialog.FileName, FileMode.Open)))
+                    {
+                        S3FaceTemplateFile.Deserialize(reader, Program.editorEnvironment.openFacePreset);
+                    }
                 }
                 Program.editorEnvironment.filePath = importDialog.FileName;
                 Program.editorEnvironment.fileName = Path.GetFileNameWithoutExtension(importDialog.FileName);
@@ -422,6 +429,21 @@ namespace FacePresetEditor
             updateMultiply();
             trackBarSliderAmount.Value = (int)(currentFaceBlend.amount * SliderMaxValue / sliderMultiplyAmount);
             numericUpDownSliderAmount.Value = (decimal)currentFaceBlend.amount;
+        }
+
+        private void batchConvertXMLsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var importDialog = new OpenFileDialog();
+            importDialog.Filter = "XML Files(*.xml)|*.xml|All files(*.*)|*.*";
+            importDialog.Multiselect = true;
+            if (importDialog.ShowDialog() == DialogResult.OK)
+            {
+                var s3peBox = MessageBox.Show("Would you like to convert them with filenames ready to be imported into S3PE?","Batch Convert",MessageBoxButtons.YesNo);
+                var s3pe = false;
+                if (s3peBox == DialogResult.Yes)
+                    s3pe = true;
+                Converter.BatchConvertXMLs(importDialog.FileNames, s3pe);
+            }
         }
     }
 }
