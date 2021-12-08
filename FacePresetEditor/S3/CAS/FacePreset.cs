@@ -11,7 +11,8 @@ namespace S3.CAS
         Eyes = 1,
         Nose = 2,
         Mouth = 4,
-        Face = 128
+        Face = 640
+        //Face = 128
     }
     public class FacePreset
     {
