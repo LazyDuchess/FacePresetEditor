@@ -101,6 +101,8 @@ namespace FacePresetEditor.Formats
                         break;
                 }
             }
+            reader.Close();
+            reader.Dispose();
         }
     }
 }

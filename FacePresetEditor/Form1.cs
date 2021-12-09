@@ -260,6 +260,9 @@ namespace FacePresetEditor
                 case PresetType.Face:
                     comboBoxPresetType.SelectedIndex = 3;
                     break;
+                case PresetType.Disabled:
+                    comboBoxPresetType.SelectedIndex = 4;
+                    break;
             }
             DisableSliderControls();
             updateSliderList();
@@ -281,6 +284,9 @@ namespace FacePresetEditor
                     break;
                 case 3:
                     presetType = PresetType.Face;
+                    break;
+                case 4:
+                    presetType = PresetType.Disabled;
                     break;
             }
             Program.editorEnvironment.openFacePreset.facePreset.presetType = presetType;
