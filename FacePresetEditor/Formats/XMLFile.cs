@@ -36,7 +36,7 @@ namespace FacePresetEditor.Formats
                     case XmlNodeType.Text:
                         Debug.WriteLine(reader.Value + " is text");
                         if (element == "Amount")
-                            fVal.amount = float.Parse(reader.Value);
+                            fVal.amount = float.Parse(reader.Value,System.Globalization.CultureInfo.InvariantCulture);
                         if (element == "Instance")
                             fVal.faceBlendTGI.instance = ulong.Parse(reader.Value);
                         if (element == "Group")
